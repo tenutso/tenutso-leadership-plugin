@@ -2,62 +2,58 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
- 
- .leadership-wrapper {
-     width: 100%;
- }
- .leadership-wrapper ul {
+
+.leadership-wrapper {
+    width: 100%;
+}
+
+.leadership-wrapper ul {
     list-style: none;
- }
- 
-  .leadership-wrapper li {
+}
+
+.leadership-wrapper li {
     display: inline-block;
     padding: 0px 20px 20px 0;
     vertical-align: top;
     width: 300px;
- }
- 
+}
 
- .leadership-wrapper img {
-     width:130px;
-     height:130px;
-     object-fit: cover;
- }
- 
- 
- .leadership-single-profile-image { 
+.leadership-wrapper img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+}
+
+.leadership-single-profile-image {
     margin: 0 30px 30px 0;
     width: 250px;
-    float:left;
- }
- 
- 
- .leadership-single-profile-details {
-    width:380px;
-    float:left;
- }
-  .leadership-single-profile-bio {
-    
-    float:right;
- }
- 
- 
- .leadership-wrapper-single img {
-      width:250px;   
-      height:250px;
-      object-fit: cover;
-      
- }
- 
+    float: left;
+}
+
+.leadership-single-profile-details {
+    width: 380px;
+    float: left;
+}
+
+.leadership-single-profile-bio {
+    float: right;
+}
+
+.leadership-wrapper-single img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
 .leadership-wrapper-single h4 {
-    font-size:18px;
-    border-bottom:1px solid #e5e5e5;
+    font-size: 18px;
+    border-bottom: 1px solid #e5e5e5;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-bottom: 3px;
 }
 
 .leadership-nav {
-    margin:0 0 40px 0;
-    float:right;
+    margin: 0 0 40px 0;
+    float: right;
 }
