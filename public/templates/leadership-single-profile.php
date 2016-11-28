@@ -36,8 +36,10 @@ $meta = get_post_meta(get_the_ID());
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
+        <div class="leadership-single-profile-bios">
         <h4>About <?php the_title(); ?></h4>
         <?php the_content(); ?>
+        </div>
     <?php endwhile; ?>
 </div>
 <?php wp_reset_query(); ?>
