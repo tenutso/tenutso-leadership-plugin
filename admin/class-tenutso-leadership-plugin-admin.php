@@ -275,7 +275,8 @@ class Tenutso_Leadership_Plugin_Admin {
 	}
 	
 	public function leadership_columns_head($defaults) {
-		$defaults['leadership_groups'] = 'Groups';
+		$defaults['leadership_groups'] = 'Sort Key';
+
 		
 		return $defaults;
 	}

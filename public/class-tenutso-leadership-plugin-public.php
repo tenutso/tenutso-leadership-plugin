@@ -107,21 +107,29 @@ class Tenutso_Leadership_Plugin_Public {
 			$term = get_term_by('slug', get_query_var( 'term' ), get_query_var( 'taxonomy') );
 			
 			if ( is_single() ) {
-				// checks if the file exists in the theme first,
-				// otherwise serve the file from the plugin
+				// checks if template file exists in the theme folder first,
+				// otherwise serve the template file from the plugin's template folder
 				if ( $theme_file = locate_template( array ( 'leadership-'. $term->slug .'.php' ) ) ) {
 					$template_path = $theme_file;
-				} else {
+				}
+				else if ( $theme_file = locate_template( array ( 'leadership-single-profile.php' ) ) ) {
+					$template_path = $theme_file;
+				}
+				else {
 					$template_path = plugin_dir_path( __FILE__ ) . 'templates/leadership-single-profile.php';
 					//print_r($template_path); exit();
 				}
 			}
 			if ( is_archive() ) {
-				// checks if the file exists in the theme first,
-				// otherwise serve the file from the plugin
+				// checks if template file exists in the theme folder first,
+				// otherwise serve the template file from the plugin's template folder
 				if ( $theme_file = locate_template( array ( 'leadership-'. $term->slug .'.php' ) ) ) {
 					$template_path = $theme_file;
-				} else {
+				}
+				else if ( $theme_file = locate_template( array ( 'leadership-archive-directory.php' ) ) ) {
+					$template_path = $theme_file;
+				}
+				else {
 					$template_path = plugin_dir_path( __FILE__ ) . 'templates/leadership-archive-directory.php';
 					//print_r($template_path); exit();
 				}
