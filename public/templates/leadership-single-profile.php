@@ -36,7 +36,7 @@ $meta = get_post_meta(get_the_ID());
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <div class="leadership-single-profile-bios">
+        <div class="leadership-single-profile-bio">
         <h4>About <?php the_title(); ?></h4>
         <?php the_content(); ?>
         </div>

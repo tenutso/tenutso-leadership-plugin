@@ -54,7 +54,7 @@ get_header(); ?>
 ?>
 <div class="leadership-wrapper">
 <div class="container">
-    <h1 class="entry-title"><?php echo $term->description; ?></h1>
+    <h4 class="entry-title"><?php echo $term->description; ?></h4>
 <ul class="staffer-archive-grid">
 <?php while ( $loop->have_posts() ) : $loop->the_post();?>
 	<?php $meta = get_post_meta(get_the_ID()); ?>
