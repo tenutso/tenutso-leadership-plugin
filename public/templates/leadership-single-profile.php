@@ -16,7 +16,8 @@ $thisgroup = get_term( $term_id );
 $meta = get_post_meta(get_the_ID());
 ?>
 <div class="leadership-wrapper-single">
-    <div class="leadership-nav"><a href="<?php echo get_term_link($thisgroup->slug, 'leadership-group'); ?>">back to listing</a><br></div>
+    <div class="leadership-nav"><a href="<?php echo get_term_link($thisgroup->slug, 'leadership-group'); ?>"><i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i>
+</a><br></div>
     <?php while ( have_posts() ) : the_post(); ?>
         <div class="leadership-single-profile-image"><?php the_post_thumbnail(); ?></div>
         <div class="leadership-single-profile-details">
@@ -29,12 +30,17 @@ $meta = get_post_meta(get_the_ID());
         			<i><?php echo $meta['leadership-line2-'. $term_id][0]; ?></i><br>
         	<?php endif; ?><br>
         	<?php if (sizeof($leadership_groups) > 1): ?>
-        	    Also featured in:<br>
+        	    Also featured in:
                 <?php foreach($leadership_groups as $group): ?>
                     <?php if ($thisgroup->name == $group->name): continue;?> <?php endif; ?>
                     <a href="<?php echo get_term_link($group->slug, 'leadership-group'); ?>"><?php echo $group->name; ?></a><br>
                 <?php endforeach; ?>
             <?php endif; ?>
+            <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-web-square" aria-hidden="true"></i>
         </div>
         <div class="leadership-single-profile-bio">
         <h4>About <?php the_title(); ?></h4>

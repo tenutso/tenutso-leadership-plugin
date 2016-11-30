@@ -74,7 +74,7 @@ class Tenutso_Leadership_Plugin_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/tenutso-leadership-plugin-admin.css', array(), $this->version, 'all' );
-
+		
 	}
 
 	/**
@@ -185,6 +185,18 @@ class Tenutso_Leadership_Plugin_Admin {
 		
 	}
 	
+	public function add_leadership_contact_metabox() 
+	{
+			add_meta_box(
+				'leadership-metabox-contact',
+				__( 'Contact Fields', 'leadership' ),
+				array($this, 'render_leadership_contact_metabox'),
+				'leadership', 
+				'normal',
+				'high'
+			);
+	}
+	
 	
 	public function render_leadership_details_metabox($post, $args) {
 		
@@ -203,6 +215,7 @@ class Tenutso_Leadership_Plugin_Admin {
 		$sort = get_post_meta( $post->ID, 'leadership-sort-'. $term->term_id, true );
 		$permalink_override = get_post_meta( $post->ID, 'leadership-permalink-'. $term->term_id, true );					
 		
+		
 		//echo "<pre>"; print_r($terms); echo "</pre>"; exit();
 		?>
 			
@@ -220,6 +233,35 @@ class Tenutso_Leadership_Plugin_Admin {
 			<hr><br><br>
 				
 		<?php 
+	}
+	
+	public function render_leadership_contact_metabox($post, $args) {
+		
+		$facebook = get_post_meta( $post->ID, 'leadership-social-facebook', true );
+		$linkedin = get_post_meta( $post->ID, 'leadership-social-linkedin', true );
+		$twitter = get_post_meta( $post->ID, 'leadership-social-twitter', true );
+		$emailaddress = get_post_meta( $post->ID, 'leadership-social-email', true );
+		$website = get_post_meta( $post->ID, 'leadership-social-website', true );
+		
+		?>
+		<label for="leadership-social-facebook"><?php _e( 'Facebook', 'leadership' ); ?></label>
+		<input class="widefat leadership-social-facebook" id="leadership-social-facebook" type="text" name="leadership-social-facebook" placeholder="" value="<?php echo $facebook;?>" />
+		<br><br>
+		<label for="leadership-social-linkedin"><?php _e( 'Linkedin', 'leadership' ); ?></label>
+		<input class="widefat leadership-social-linkedin" id="leadership-social-linkedin" type="text" name="leadership-social-linkedin" placeholder="" value="<?php echo $linkedin;?>" />
+		<br><br>
+		<label for="leadership-social-twitter"><?php _e( 'Twitter', 'leadership' ); ?></label>
+		<input class="widefat leadership-social-twitter" id="leadership-social-twitter" type="text" name="leadership-social-twitter" placeholder="" value="<?php echo $twitter;?>" />
+		<br><br>
+		<label for="leadership-social-email"><?php _e( 'Email Address', 'leadership' ); ?></label>
+		<input class="widefat leadership-social-email" id="leadership-social-email" type="text" name="leadership-social-email" placeholder="" value="<?php echo $emailaddress;?>" />
+		<br><br>
+		<label for="leadership-social-website"><?php _e( 'Website', 'leadership' ); ?></label>
+		<input class="widefat leadership-social-website" id="leadership-social-website" type="text" name="leadership-social-website" placeholder="" value="<?php echo $website;?>" />
+		<br><br>
+		
+		<?php
+		
 	}
 	
 	public function save_leadership_details( $post_id ) {
@@ -271,11 +313,29 @@ class Tenutso_Leadership_Plugin_Admin {
 			if ( isset( $_POST['leadership-permalink-'. $term->term_id] ) ) {
 				update_post_meta( $post_id, 'leadership-permalink-'. $term->term_id, $_POST['leadership-permalink-'. $term->term_id] );
 			}			
-		}		
+		}	
+		
+		// save contact information
+		
+		if ( isset( $_POST['leadership-social-facebook'] ) ) {
+				update_post_meta( $post_id, 'leadership-social-facebook', $_POST['leadership-social-facebook'] );
+		}
+		if ( isset( $_POST['leadership-social-linkedin'] ) ) {
+				update_post_meta( $post_id, 'leadership-social-linkedin', $_POST['leadership-social-linkedin'] );
+		}
+		if ( isset( $_POST['leadership-social-twitter'] ) ) {
+				update_post_meta( $post_id, 'leadership-social-twitter', $_POST['leadership-social-twitter'] );
+		}
+		if ( isset( $_POST['leadership-social-email'] ) ) {
+				update_post_meta( $post_id, 'leadership-social-email', $_POST['leadership-social-email'] );
+		}
+		if ( isset( $_POST['leadership-social-website'] ) ) {
+				update_post_meta( $post_id, 'leadership-social-website', $_POST['leadership-social-website'] );
+		}
 	}
 	
 	public function leadership_columns_head($defaults) {
-		$defaults['leadership_groups'] = 'Sort Key';
+		$defaults['leadership_groups'] = 'Groups';
 
 		
 		return $defaults;

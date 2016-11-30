@@ -155,6 +155,7 @@ class Tenutso_Leadership_Plugin {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_admin, 'register_post_types' );
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_leadership_details_metabox' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_leadership_contact_metabox' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'save_leadership_details' );
 		$this->loader->add_filter( 'manage_posts_columns', $plugin_admin, 'leadership_columns_head' );
 		$this->loader->add_action( 'manage_posts_custom_column', $plugin_admin, 'leadership_columns_content', 10, 2 );

@@ -74,6 +74,7 @@ class Tenutso_Leadership_Plugin_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/tenutso-leadership-plugin-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . "-font-awesome", '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version, 'all' );
 
 	}
 
